@@ -1,25 +1,23 @@
 from collections import Counter, defaultdict
 from itertools import dropwhile
 import demjson
+import math
 
 
 class APriori():
-    """
-    Frequent itemset miner class to implement Apriori algorithm using standard
-    libraries in Python 3. Input is a database of per-row transactions of
-    space-separated integers (or string representations of integers) for items.
-    Writes out a text file with one row per frequent itemset, with set size,
-    frequency, and constiutent items indicated in that order.
-    """
 
-    def __init__(self, data=None, out=None):
+    def __init__(self, data, out):
 
         self.data = data
         self.out = out
         self.previous = []
         self.frequent = defaultdict(Counter)
+        self.associative = None
+        self.sigma = None
+        self.min_set = None
+        self.max_set = None
 
-    def find_frequent(self, support, min_set_size, max_set_size):
+    def find_frequent(self, support, min_set_size=2, max_set_size=math.inf):
 
         assert self.data is not None and self.out is not None, "data or out path is None"
         self.sigma = support
