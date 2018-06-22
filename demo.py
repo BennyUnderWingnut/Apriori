@@ -8,9 +8,9 @@ import apriori
 # a line of data is valid only if
 # min_set_size <= number of items in the line <= max_sey_size
 
-AP = apriori.APriori(data='./test_datasets/transactions.dat',
+AP = apriori.APriori(data='./test_datasets/freqout.out',
                      out='./test_datasets/result.txt')
-AP.find_frequent(support=50, min_set_size=2, max_set_size=3)
+AP.find_frequent(support=50, min_set_size=2, max_set_size=5)
 
 # Read trained data from file
 

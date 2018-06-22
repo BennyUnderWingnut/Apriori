@@ -85,7 +85,7 @@ class APriori():
                                     self.frequent[k].most_common()):
             del self.frequent[k][key]
 
-        print("Frequent {}-itemsets generated.".format(k))
+        print("Frequent {}-item-sets generated, size = {}.".format(k, len(self.frequent[k])))
 
         return self.frequent[k]
 
